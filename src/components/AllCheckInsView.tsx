@@ -91,11 +91,13 @@ export default function AllCheckInsView(props:any){
       return null;
     }
 
-    const a:Array<string> = s.split(' ');
+    let a:Array<string> = s.split(' ');
 
-    if (s.length < 4){
+    if (a.length < 4 || (a.length < 5 && a[0] == '-')){
       enqueueSnackbar.warning('Please use the format of <number> [hr | hrs] #<tag> <activities>');
       return null;
+    } else if (a[0] == '-') {
+      a = a.slice(1);
     }
 
     let isNumber = parseFloat(a[0]) ? true : false;

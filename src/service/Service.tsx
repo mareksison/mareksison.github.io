@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // current hosting url
-const host = 'http://localhost:3001';
+const host = 'https://enthusiastic-knickers-bat.cyclic.app';
 
 /**
  * @endpoint

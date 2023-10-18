@@ -68,15 +68,17 @@ export default function AddCheckInView(props:any){
       rowString = 'Row ' + (i+1) + ": ";
   
       // check if there are less than 3 spaces
-      if (a.length < 4){
+      if (a.length < 4 || (a.length < 5 && a[0] == '-')){
         // string not in right format
         setState({
           ...state,
           error: rowString + 'please use the format of <number> [hr | hrs] #<tag> <activities>'
         });
         return;
+      } else if (a[0] == '-') {
+        a = a.slice(1);
       }
-  
+
       // store if first variable is a number
       let isNumber = parseFloat(a[0]) ? true : false;
       let numHours = 0;
