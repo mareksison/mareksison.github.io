@@ -1,38 +1,14 @@
-# Started with Create React App
+# tm-check-in-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React + Vite
 
-## How to Run
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Running this front-end project is easy!
+Currently, two official plugins are available:
 
-### Installation
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-```bash
-$ npm install --legacy-peer-deps
-```
+## Expanding the ESLint configuration
 
-Installs the necessary packages into "./node_modules."\
-It also creates the "./package-lock" folder.\
-It serves as a quick link to your node_modules making it more convenient to import
-
-`--legacy-peer-deps` is a flag we use to maake installation simpler.\
-It automatically installs relevant peer dependancies.\
-It also adds it to you ".package.json" file.
-
-### Running
-
-```bash
-$ npm run start
-```
-
-Runs the app locally on [http://localhost:3000](http://localhost:3000).\
-It should automatically open on your browser.
-
-The page will reload if you make edits.\
-You will also see any errors in the console.
-
-### Closing
-
-Once you're done, use the `CTRL + C` shortcut command.\
-This should end the program after you confirm.
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
