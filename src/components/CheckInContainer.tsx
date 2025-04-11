@@ -1,9 +1,9 @@
 import * as React from 'react'
-import axios from 'axios';
 
-import CheckInTextField from '../components/CheckInTextField'
-import CheckInList from '../components/CheckInList'
-import CheckInChart from '../components/CheckInChart'
+import './App.css'
+import CheckInTextField from './CheckInTextField'
+import CheckInList from './CheckInList'
+import CheckInChart from './CheckInChart'
 
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store';
@@ -14,7 +14,9 @@ import { EnvObj } from '../EnvObj.tsx';
 
 const { API_BASE_URL } = EnvObj; // base URL
 
-export default function CheckInPage() {
+import axios from 'axios';
+
+export default function CheckInContainer() {
   const { checkInsArray } = useSelector((state: RootState) => state.checkIn);
   const dispatch = useAppDispatch();
   const apiIsActive = false;
@@ -23,7 +25,6 @@ export default function CheckInPage() {
     if (apiIsActive){
       axios.get(`${API_BASE_URL}/checkins`)
         .then(response => {
-          console.log(response);
           dispatch(updateCheckIns(response.data));
         })
         .catch(error => {
@@ -34,13 +35,13 @@ export default function CheckInPage() {
 
   return (
     <>
-    <CheckInTextField/>
-    { checkInsArray.length > 0 ?
+      <CheckInTextField/>
+      { checkInsArray.length > 0 ?
         <>
-        <CheckInList/>
-        <CheckInChart/>
+          <CheckInList/>
+          <CheckInChart/>
         </>
-    : <></> }
+      : <></> }
     </>
-  );
+  )
 }

@@ -14,8 +14,9 @@ import { checkInsError, clearError, isErrorFalse, isErrorTrue, updateCheckIns, u
 import CheckInObject from './CheckInObject';
 
 import axios from 'axios';
+import { EnvObj } from '../EnvObj.tsx';
 
-const API_BASE_URL = 'http://localhost:3000'; // base URL
+const { API_BASE_URL } = EnvObj; // base URL
 
 export default function CheckInTextField() {
   const { helperValue, isError, textValue } = useSelector((state: RootState) => state.checkIn);

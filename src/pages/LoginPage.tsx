@@ -21,7 +21,9 @@ import type { RootState } from '../redux/store';
 import { useAppDispatch } from '../redux/store';
 import { login, loginErrorFalse, loginErrorTrue, toggleShowPassword, updatePw, updateUser } from '../redux/slices/loginSlice';
 
-const API_BASE_URL = 'http://localhost:3000'; // base URL
+import { EnvObj } from '../EnvObj.tsx';
+
+const { API_BASE_URL } = EnvObj; // base URL
 
 export default function LoginPage() {
   const { loginError, pw, showPassword, user } = useSelector((state:RootState) => state.login);
@@ -63,19 +65,19 @@ export default function LoginPage() {
     }
   }
 
-  // const handleCreateUser = async (event) => {
-  //   try {
-  //     loginErrorFalse();
-  //     const response = await axios.post(`${API_BASE_URL}/users`, {
-  //       username: "mareksison",
-  //       password: "123password",
-  //     });
+  const handleCreateUser = async (event) => {
+    try {
+      loginErrorFalse();
+      const response = await axios.post(`${API_BASE_URL}/users`, {
+        username: "mareksison",
+        password: "123password",
+      });
       
-  //   } catch (error) {
-  //     console.error('Create failed:', error.response?.data || error.message);
-  //     throw error;
-  //   }
-  // }
+    } catch (error) {
+      console.error('Create failed:', error.response?.data || error.message);
+      throw error;
+    }
+  }
     
   /**
    * Helper text component, instantiated inside to make use of the FormControl
